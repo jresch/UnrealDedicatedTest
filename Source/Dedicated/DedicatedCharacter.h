@@ -1,12 +1,20 @@
 // Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 #pragma once
 #include "GameFramework/Character.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 #include "DedicatedCharacter.generated.h"
+
 
 UCLASS(config=Game)
 class ADedicatedCharacter : public ACharacter
 {
 	GENERATED_BODY()
+
+
+
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	//class UProjectileMovementComponent* ProjectileMovement;
+
 
 	/** Side view camera */
 	class UCameraComponent* SideViewCameraComponent;
@@ -14,6 +22,10 @@ class ADedicatedCharacter : public ACharacter
 	/** Camera boom positioning the camera beside the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
+
+
+
+
 
 protected:
 
@@ -38,4 +50,12 @@ public:
 	FORCEINLINE class UCameraComponent* GetSideViewCameraComponent() const { return SideViewCameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+	/** Returns CameraBoom subobject **/
+
+	
+
+	//FORCEINLINE class UProjectileMovementComponent* GetProjectileMovementComponent() const { return ProjectileMovement; }
+
+
+
 };

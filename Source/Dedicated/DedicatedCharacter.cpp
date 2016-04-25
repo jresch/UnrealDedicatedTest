@@ -3,6 +3,7 @@
 #include "Dedicated.h"
 #include "DedicatedCharacter.h"
 
+
 ADedicatedCharacter::ADedicatedCharacter()
 {
 	// Set size for collision capsule
@@ -25,7 +26,11 @@ ADedicatedCharacter::ADedicatedCharacter()
 	// Create a camera and attach to boom
 	SideViewCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("SideViewCamera"));
 	SideViewCameraComponent->AttachTo(CameraBoom, USpringArmComponent::SocketName);
-	SideViewCameraComponent->bUsePawnControlRotation = false; // We don't want the controller rotating the camera
+	SideViewCameraComponent->bUsePawnControlRotation = false; // We don't want the controller rotating the camera // Create a camera and attach to boom
+
+	//ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement"));
+	
+	
 
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Face in the direction we are moving..
@@ -36,6 +41,9 @@ ADedicatedCharacter::ADedicatedCharacter()
 	GetCharacterMovement()->GroundFriction = 3.f;
 	GetCharacterMovement()->MaxWalkSpeed = 600.f;
 	GetCharacterMovement()->MaxFlySpeed = 600.f;
+
+
+
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
